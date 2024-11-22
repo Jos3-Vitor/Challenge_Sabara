@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check-in Digital - Hospital Sabará</title>
+    <link rel="stylesheet" href="/styles/normalize.css">
+    <link rel="stylesheet" href="/styles/checkin.css">
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">
+            <img src="/assets/logo.jpg" alt="Hospital Sabará">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/pages/checkin.html" class="active">Check-in Digital</a></li>
+                <li><a href="/pages/status.html">Status do Paciente</a></li>
+                <li><a href="/pages/farmacia.html">Controle de Medicamentos</a></li>
+                <li><a href="/pages/impactos.html">Impactos</a></li>
+                <li><a href="/pages/dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção de Check-in -->
+    <main>
+        <section class="checkin-section">
+            <h2>Check-in Digital</h2>
+            <p>Preencha suas informações para agilizar seu atendimento no Hospital Sabará.</p>
+
+            <!-- Formulário de Check-in -->
+            <form id="checkin-form">
+                <label for="patient-name">Nome do Paciente:</label>
+                <input type="text" id="patient-name" name="patient-name" placeholder="Digite o nome completo" required
+                    minlength="3" aria-label="Digite o nome completo do paciente">
+
+                <label for="patient-age">Idade:</label>
+                <input type="number" id="patient-age" name="patient-age" placeholder="Digite a idade" required min="0"
+                    max="150" aria-label="Digite a idade do paciente em números">
+
+                <label for="guardian-name">Nome do Responsável:</label>
+                <input type="text" id="guardian-name" name="guardian-name" placeholder="Digite o nome do responsável"
+                    aria-label="Digite o nome do responsável pelo paciente">
+
+                <label for="contact-phone">Telefone para Contato:</label>
+                <input type="tel" id="contact-phone" name="contact-phone" placeholder="(xx) xxxx-xxxx" required
+                    pattern="^\(\d{2}\) \d{4,5}-\d{4}$"
+                    aria-label="Digite o número de telefone no formato (xx) xxxx-xxxx">
+
+                <label for="appointment-type">Tipo de Atendimento:</label>
+                <select id="appointment-type" name="appointment-type" required>
+                    <option value="" disabled selected>Selecione o tipo de atendimento</option>
+                    <option value="consulta">Consulta</option>
+                    <option value="urgencia">Urgência</option>
+                    <option value="exames">Exames</option>
+                </select>
+
+                <label for="additional-info">Informações Adicionais:</label>
+                <textarea id="additional-info" name="additional-info" rows="4"
+                    placeholder="Adicione informações relevantes (opcional)"
+                    aria-label="Adicione informações adicionais relacionadas ao atendimento"></textarea>
+
+                <button type="submit" class="cta-button">Enviar Check-in</button>
+            </form>
+
+            <!-- Seção de Resultado -->
+            <div id="checkin-result" style="display: none; margin-top: 20px; padding: 15px; border: 1px solid #004aad; border-radius: 5px; background-color: #eaf4ff;"></div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Hospital Sabará. Todos os direitos reservados.</p>
+        <p>Contato: (11) 1234-5678 | <a href="mailto:contato@hospitalsabara.com.br">contato@hospitalsabara.com.br</a>
+        </p>
+    </footer>
+
+    <!-- Script -->
+    <script src="/scripts/form-validation.js"></script>
+</body>
+
+</html>
