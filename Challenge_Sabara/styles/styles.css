@@ -1,0 +1,387 @@
+/* Estilos Gerais */
+body {
+    font-family: Arial, sans-serif;
+    /* Fonte simples e legível */
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    /* Fundo neutro para contraste com outros elementos */
+    color: #333;
+    /* Cor padrão para o texto */
+    transition: background-color 0.3s ease-in-out;
+    /* Suave mudança de fundo */
+}
+
+/* Cabeçalho (Header) */
+header {
+    background-color: #0065B3; /* Azul do logotipo do hospital */
+    color: white; /* Texto branco para contraste */
+    padding: 15px;
+    display: flex; /* Flexbox para alinhar logo e menu */
+    justify-content: space-between; /* Mantém a logo e os links separados */
+    align-items: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para destaque */
+    transition: box-shadow 0.3s ease; /* Suave ao interagir */
+}
+
+/* Logo */
+header .logo {
+    flex: 0 0 auto; /* Garante que a logo não se expanda */
+}
+
+header .logo img {
+    height: 100px; /* Altura fixa do logotipo */
+    width: 100px; /* Largura fixa do logotipo */
+}
+
+/* Menu de Navegação */
+nav {
+    flex: 1; /* Faz o menu ocupar o espaço restante */
+    text-align: center; /* Centraliza os links no espaço do menu */
+}
+
+nav ul {
+    list-style: none; /* Remove marcadores de lista */
+    display: inline-flex; /* Exibe os itens em linha */
+    gap: 20px; /* Espaçamento uniforme entre os links */
+    padding: 0; /* Remove o espaçamento padrão */
+    margin: 0; /* Remove o espaçamento padrão */
+}
+
+nav ul li a {
+    color: white; /* Links brancos */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    font-weight: bold; /* Destaque para os links */
+    transition: color 0.3s ease; /* Transição suave no hover */
+}
+
+nav ul li a:hover {
+    color: #ffcc00; /* Muda para amarelo ao passar o mouse */
+}
+
+
+/* Seção Hero (Principal) */
+.hero {
+    background-color: #eaf4ff;
+    /* Fundo azul claro para suavidade */
+    text-align: center;
+    /* Centraliza texto e botão */
+    padding: 50px 20px;
+    /* Espaçamento interno generoso */
+    animation: fade-in 1s ease-in-out;
+    /* Animação de entrada */
+}
+
+.hero h2 {
+    font-size: 2rem;
+    /* Tamanho maior para destaque */
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    /* Tamanho menor para descrição */
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: #004aad;
+    /* Azul forte para botão */
+    color: white;
+    /* Texto branco para contraste */
+    padding: 10px 20px;
+    font-size: 1rem;
+    /* Tamanho legível */
+    border: none;
+    /* Remove bordas padrão */
+    border-radius: 5px;
+    /* Bordas arredondadas para suavidade */
+    cursor: pointer;
+    text-transform: uppercase;
+    /* Texto em maiúsculas para destaque */
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    /* Suaviza transformações */
+}
+
+.cta-button:hover {
+    background-color: #003380;
+    /* Escurece o botão ao passar o mouse */
+    transform: scale(1.1);
+    /* Aumenta o tamanho em 10% */
+}
+
+/* Seção de Funcionalidades */
+.features {
+    text-align: center;
+    /* Centraliza o título da seção */
+    margin: 50px 20px;
+    /* Espaçamento superior e lateral */
+}
+
+.feature-container {
+    display: flex;
+    /* Exibe as funcionalidades em linha */
+    justify-content: space-around;
+    /* Espaço uniforme entre os itens */
+    flex-wrap: wrap;
+    /* Quebra os itens para telas menores */
+    gap: 20px;
+    /* Espaçamento entre os itens */
+}
+
+.feature-item {
+    width: 30%;
+    /* Cada funcionalidade ocupa 30% do contêiner */
+    max-width: 250px;
+    /* Limita a largura máxima */
+    text-align: center;
+    /* Centraliza o texto */
+    padding: 10px;
+    border: 1px solid #ccc;
+    /* Borda cinza clara para separação */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    background-color: #f9f9f9;
+    /* Fundo neutro */
+    transition: transform 0.3s ease;
+    /* Suaviza transformações */
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+    /* Eleva o cartão ao passar o mouse */
+}
+
+.feature-item img {
+    margin-bottom: 10px;
+    /* Espaçamento abaixo da imagem */
+    border-radius: 50%;
+    /* Imagens em formato circular */
+    transition: transform 0.3s ease;
+    /* Transição suave no hover */
+}
+
+.feature-item img:hover {
+    transform: scale(1.1);
+    /* Aumenta o ícone em 10% */
+}
+
+.feature-item h4 {
+    font-size: 1.2rem;
+    /* Tamanho do título das funcionalidades */
+    color: #004aad;
+    /* Azul para destacar os títulos */
+}
+
+.feature-item p {
+    font-size: 0.9rem;
+    /* Tamanho do texto descritivo */
+    color: #666;
+    /* Texto cinza para menos destaque */
+}
+
+/* Rodapé (Footer) */
+footer {
+    background-color: #004aad;
+    /* Azul forte para o rodapé */
+    color: white;
+    /* Texto branco para contraste */
+    text-align: center;
+    padding: 10px;
+    /* Espaçamento interno */
+    font-size: 0.9rem;
+    /* Tamanho menor para o rodapé */
+}
+
+/* Estilo do Banner de Notificação */
+.notification-banner {
+    display: none;
+    /* Ocultado por padrão até ser ativado pelo JavaScript */
+    justify-content: space-between;
+    /* Alinha o texto e botão nas extremidades */
+    align-items: center;
+    /* Centraliza verticalmente os itens */
+    position: fixed;
+    /* Fixa o banner no topo da página */
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffcc00;
+    /* Fundo amarelo chamativo */
+    color: #333;
+    /* Texto escuro para contraste */
+    padding: 10px 20px;
+    font-size: 1rem;
+    /* Tamanho padrão do texto */
+    z-index: 1000;
+    /* Garante que o banner fique acima de outros elementos */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra para dar destaque */
+    animation: slide-down 0.5s ease;
+    /* Animação para deslizar ao aparecer */
+}
+
+/* Texto do Banner */
+.notification-banner p {
+    margin: 0;
+    /* Remove margens padrão */
+    font-weight: bold;
+    /* Destaca o texto */
+}
+
+/* Botão de Fechar o Banner */
+.notification-banner button {
+    background: none;
+    /* Remove estilo padrão do botão */
+    border: none;
+    /* Remove borda padrão */
+    font-size: 1.2rem;
+    /* Aumenta o tamanho do ícone "X" */
+    font-weight: bold;
+    /* Destaca o botão */
+    cursor: pointer;
+    /* Muda o cursor ao passar o mouse */
+    color: #333;
+    /* Cor escura para contraste */
+    transition: transform 0.3s ease;
+    /* Suaviza transformações */
+}
+
+.notification-banner button:hover {
+    transform: scale(1.2);
+    /* Aumenta o tamanho do botão */
+}
+
+/* Animações */
+@keyframes slide-down {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Seção de Notícias */
+.news {
+    background-color: #f9f9f9;
+    /* Fundo neutro */
+    border: 1px solid #ddd;
+    /* Borda leve para separação */
+    padding: 20px;
+    margin: 30px auto;
+    /* Espaçamento superior e inferior */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    max-width: 800px;
+    /* Largura máxima */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra para destaque */
+}
+
+.news h3 {
+    font-size: 1.5rem;
+    /* Tamanho do título */
+    color: #004aad;
+    /* Azul do tema */
+    text-align: center;
+    /* Centraliza o título */
+    margin-bottom: 15px;
+    /* Espaçamento abaixo do título */
+}
+
+.news ul {
+    list-style-type: none;
+    /* Remove marcadores padrão */
+    padding: 0;
+    /* Remove margens padrão */
+}
+
+.news ul li {
+    font-size: 1rem;
+    /* Tamanho do texto */
+    color: #333;
+    /* Texto padrão */
+    margin-bottom: 15px;
+    /* Espaçamento entre as notícias */
+    line-height: 1.5;
+    /* Altura da linha para legibilidade */
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    /* Linha para separação */
+    transition: transform 0.2s ease, color 0.2s ease;
+    /* Transição suave */
+}
+
+.news ul li:hover {
+    color: #004aad;
+    /* Azul do tema no hover */
+    transform: translateX(10px);
+    /* Move o texto ligeiramente para a direita */
+}
+
+.news-footer {
+    text-align: center;
+    /* Centraliza os botões */
+    margin-top: 20px;
+    /* Espaçamento acima */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    /* Espaçamento entre os botões */
+}
+
+.news-footer .cta-button {
+    background-color: #004aad;
+    /* Azul do tema */
+    color: white;
+    /* Texto branco */
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    /* Bordas arredondadas */
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.news-footer .cta-button.secondary {
+    background-color: #ccc;
+    /* Cor neutra */
+    color: #333;
+    /* Texto escuro */
+}
+
+.news-footer .cta-button:hover {
+    background-color: #003380;
+    /* Escurece no hover */
+    transform: scale(1.05);
+    /* Aumenta ligeiramente no hover */
+}
+
+.news-footer .cta-button.secondary:hover {
+    background-color: #999;
+    /* Escurece no hover */
+}
+
+
+
+/* Comentário geral:
+   Este CSS inclui animações suaves para botões, imagens e elementos interativos.
+   O uso de flexbox e transições garante boa responsividade e experiência do usuário.
+   As animações de hover e keyframes criam um site visualmente dinâmico e moderno.
+*/
