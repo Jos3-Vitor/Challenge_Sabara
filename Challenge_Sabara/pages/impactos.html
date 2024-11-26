@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impactos - Hospital Sabará</title>
+    <title>Impactos - Sistema Integrado</title>
     <link rel="stylesheet" href="../styles/normalize.css">
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/impactos.css">
@@ -30,13 +30,39 @@
 
     <!-- Seção Principal -->
     <main>
+        <!-- Seção de Impactos -->
         <section class="impactos-section">
             <h1>Impacto em Números</h1>
             <p>Uma comparação entre os processos antes e depois da implementação do sistema.</p>
+            <canvas id="impact-chart"></canvas>
+        </section>
 
-            <!-- Gráfico de Impacto -->
-            <div class="impact-graph">
-                <canvas id="impact-chart"></canvas>
+        <!-- Nova Seção de Textos -->
+        <section class="impact-text-section">
+            <h2>Análise dos Impactos</h2>
+            <div class="impact-text-container">
+                <div class="impact-text-card">
+                    <h3>Pacientes</h3>
+                    <p>
+                        Antes do sistema integrado, os pacientes enfrentavam longas filas e atrasos no atendimento.
+                        Após a implementação, os tempos de espera foram significativamente reduzidos, melhorando
+                        a experiência geral do paciente.
+                    </p>
+                </div>
+                <div class="impact-text-card">
+                    <h3>Profissionais</h3>
+                    <p>
+                        Os profissionais ganharam ferramentas para otimizar suas tarefas diárias, reduzindo a carga
+                        administrativa e permitindo mais foco na atenção aos pacientes.
+                    </p>
+                </div>
+                <div class="impact-text-card">
+                    <h3>Gestores</h3>
+                    <p>
+                        Com relatórios detalhados e dados em tempo real, os gestores agora têm uma visão clara
+                        dos processos internos, facilitando a tomada de decisões estratégicas.
+                    </p>
+                </div>
             </div>
         </section>
     </main>
