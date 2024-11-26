@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>Status do Paciente</title>
+    <link rel="stylesheet" href="/Challenge_Sabara/styles/normalize.css">
+    <link rel="stylesheet" href="/Challenge_Sabara/styles/styles.css">
+    <link rel="stylesheet" href="/Challenge_Sabara/styles/status.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/Challenge_Sabara/index.html"><img src="/Challenge_Sabara/assets/logo.jpg" alt="Hospital Sabará"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/Challenge_Sabara/index.html">Home</a></li>
+                <li><a href="/Challenge_Sabara/pages/checkin.html">Check-in Digital</a></li>
+                <li><a href="/Challenge_Sabara/pages/status.html">Status do Paciente</a></li>
+                <li><a href="/Challenge_Sabara/pages/farmacia.html">Controle de Medicamentos</a></li>
+                <li><a href="/Challenge_Sabara/pages/impactos.html">Impactos</a></li>
+                <li><a href="/Challenge_Sabara/pages/dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="status-section">
+            <h2>Consultar status do paciente</h2>
+            <p>Preencha as informações do paciente para verificar seu status</p>
+
+            <form id="status-form">
+                <label for="patient-name">Nome do Paciente:</label>
+                <input type="text" id="patient-name" name="patient-name" placeholder="Digite o nome completo" required
+                    minlength="3" aria-label="Digite o nome completo do paciente">
+
+                <label for="numero-prontuario-cpf">Número do Prontuário ou CPF do paciente:</label>
+                <input type="text" id="numero-prontuario-cpf" name="numero-prontuario-cpf" placeholder="Digite o CPF / Prontuário" required
+                minlength="3" aria-label="Digite CPF ou Prontuário do paciente">
+                
+                <button type="submit" class="sts-btn">Consultar</button>
+            </form>
+        </section>
+
+        <section id="resultados" class="resultados hidden">
+            <h2>Status do Paciente</h2>
+            <p>Bem-vindo, <span id="res-nome"></span></p>
+            <p>Status atual: <span id="status"></span></p>
+
+            <h3>Horários Disponíveis</h3>
+            <ul id="horarios"></ul>
+
+            <h3>Etapas do Processo</h3>
+            <div class="linha-do-tempo">
+                <div id="marcadores">
+                    <span class="marcador">Recepção</span>
+                    <span class="marcador">Consulta</span>
+                    <span class="marcador">Exame</span>
+                    <span class="marcador">Resultado Pronto</span>
+                </div>
+            </div>
+
+            <h3>Resultados de Exames</h3>
+            <div id="exames"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Hospital Sabará. Todos os direitos reservados.</p>
+        <p>Contato: (11) 1234-5678 | <a href="mailto:contato@hospitalsabara.com.br">contato@hospitalsabara.com.br</a>
+        </p>
+    </footer>
+
+    <script src="/Challenge_Sabara/scripts/status.js"></script>
+</body>
+</html>

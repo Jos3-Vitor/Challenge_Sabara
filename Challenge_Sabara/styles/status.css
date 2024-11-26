@@ -1,0 +1,109 @@
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 723px;
+}
+
+.status-section{
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    background: linear-gradient(to bottom, #ffffff, #f4f9ff);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.status-section h2{
+    font-size: 2.5rem;
+    color: #004aad;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.status-section p{
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+}
+
+label {
+    font-size: 1rem;
+    color: #004aad;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input{
+    padding: 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: 95%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus{
+    border-color: #004aad;
+    box-shadow: 0 0 5px rgba(0, 74, 173, 0.5);
+    outline: none;
+}
+
+.sts-btn {
+    background: linear-gradient(to right, #004aad, #0065B3);
+    color: white;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.sts-btn:hover {
+    background: linear-gradient(to right, #003380, #005599);
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none;
+}
+
+.resultados {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    background: linear-gradient(to bottom, #ffffff, #f4f9ff);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.resultados h2{
+    font-size: 2.5rem;
+    color: #004aad;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.resultados ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.resultados ul li {
+    margin: 5px 0;
+}
