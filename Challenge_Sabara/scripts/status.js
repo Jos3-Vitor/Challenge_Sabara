@@ -44,38 +44,38 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-// Função para atualizar resultados de exames
-const atualizarExames = () => {
-    resultadoExames.innerHTML = ""; // Limpa a tabela de exames
-    for (const exame in exames) {
-        const row = document.createElement("tr"); // Cria uma linha da tabela
+    // Função para atualizar resultados de exames
+    const atualizarExames = () => {
+        resultadoExames.innerHTML = ""; // Limpa a tabela de exames
+        for (const exame in exames) {
+            const row = document.createElement("tr"); // Cria uma linha da tabela
 
-        // Define as células com conteúdo centralizado
-        const exameCell = document.createElement("td");
-        exameCell.textContent = exame;
-        exameCell.style.textAlign = "center"; // Centraliza o conteúdo da célula
+            // Define as células com conteúdo centralizado
+            const exameCell = document.createElement("td");
+            exameCell.textContent = exame;
+            exameCell.style.textAlign = "center"; // Centraliza o conteúdo da célula
 
-        const statusCell = document.createElement("td");
-        statusCell.textContent = exames[exame];
-        statusCell.style.textAlign = "center"; // Centraliza o conteúdo da célula
+            const statusCell = document.createElement("td");
+            statusCell.textContent = exames[exame];
+            statusCell.style.textAlign = "center"; // Centraliza o conteúdo da célula
 
-        // Adiciona as células à linha
-        row.appendChild(exameCell);
-        row.appendChild(statusCell);
+            // Adiciona as células à linha
+            row.appendChild(exameCell);
+            row.appendChild(statusCell);
 
-        // Adiciona a linha à tabela
-        resultadoExames.appendChild(row);
-    }
+            // Adiciona a linha à tabela
+            resultadoExames.appendChild(row);
+        }
 
-    // Centraliza a tabela de exames
-    const tabela = resultadoExames.closest("table");
-    if (tabela) {
-        tabela.style.margin = "20px auto"; // Centraliza horizontalmente
-        tabela.style.borderCollapse = "collapse"; // Remove espaçamentos entre bordas
-        tabela.style.width = "100%"; // Define largura total
-        tabela.style.maxWidth = "700px"; // Limita a largura máxima
-    }
-};
+        // Centraliza a tabela de exames
+        const tabela = resultadoExames.closest("table");
+        if (tabela) {
+            tabela.style.margin = "20px auto"; // Centraliza horizontalmente
+            tabela.style.borderCollapse = "collapse"; // Remove espaçamentos entre bordas
+            tabela.style.width = "100%"; // Define largura total
+            tabela.style.maxWidth = "700px"; // Limita a largura máxima
+        }
+    };
 
 
     // Evento de envio do formulário
