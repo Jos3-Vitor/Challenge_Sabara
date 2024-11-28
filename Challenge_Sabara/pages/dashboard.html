@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Administrativo</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="../styles/normalize.css">
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/dashboard.css">
@@ -14,7 +14,7 @@
     <!-- Cabeçalho -->
     <header>
         <div class="logo">
-            <img src="../assets/logo.jpg" alt="Hospital Sabará">
+            <a href="../index.html"><img src="../assets/logo.jpg" alt="Hospital Sabará"></a>
         </div>
         <nav>
             <ul>
@@ -22,27 +22,52 @@
                 <li><a href="/Challenge_Sabara/pages/checkin.html">Check-in Digital</a></li>
                 <li><a href="/Challenge_Sabara/pages/status.html">Status do Paciente</a></li>
                 <li><a href="/Challenge_Sabara/pages/farmacia.html">Controle de Medicamentos</a></li>
-                <li><a href="../pages/agendamento.html" class="active">Agendamento de Consultas</a></li>
+                <li><a href="/Challenge_Sabara/pages/agendamento_consultas.html">Agendamento de Consultas</a></li>
                 <li><a href="/Challenge_Sabara/pages/impactos.html">Impactos</a></li>
-                <li><a href="/Challenge_Sabara/pages/dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="/Challenge_Sabara/pages/dashboard.html"  class="active">Dashboard</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Seção Principal -->
-    <main>
-        <section class="dashboard-section">
-            <h1>Dashboard Administrativo</h1>
-            <p>Comparação entre tempos atuais e propostos para os processos hospitalares.</p>
-            <canvas id="chart"></canvas>
+    <!-- Conteúdo Principal -->
+    <main class="dashboard">
+        <!-- Indicadores -->
+        <section class="indicadores">
+            <div class="indicador">
+                <h3>Pacientes Hoje</h3>
+                <p id="pacientes-hoje">0</p>
+            </div>
+            <div class="indicador">
+                <h3>Consultas Agendadas</h3>
+                <p id="consultas-agendadas">0</p>
+            </div>
+            <div class="indicador">
+                <h3>Exames Realizados</h3>
+                <p id="exames-realizados">0</p>
+            </div>
+            <div class="indicador">
+                <h3>Médicos Disponíveis</h3>
+                <p id="medicos-disponiveis">0</p>
+            </div>
         </section>
 
-        <!-- Botões de Filtro -->
-        <div class="filter-buttons">
-            <button id="weekly" class="filter-button active">Semanal</button>
-            <button id="monthly" class="filter-button">Mensal</button>
-            <button id="yearly" class="filter-button">Anual</button>
-        </div>
+        <!-- Gráficos -->
+        <section class="graficos">
+            <div class="grafico">
+                <h3>Consultas por Dia</h3>
+                <canvas id="grafico-consultas" width="400" height="200"></canvas>
+            </div>
+            <div class="grafico">
+                <h3>Exames por Dia</h3>
+                <canvas id="grafico-exames" width="400" height="200"></canvas>
+            </div>
+        </section>
+
+        <!-- Lista de Tarefas -->
+        <section class="tarefas">
+            <h3>Lista de Tarefas</h3>
+            <ul></ul>
+        </section>
     </main>
 
     <!-- Rodapé -->
@@ -51,7 +76,6 @@
         <p>Contato: (11) 1234-5678 | <a href="mailto:contato@hospitalsabara.com.br">contato@hospitalsabara.com.br</a></p>
     </footer>
 
-    <!-- Script -->
     <script src="../scripts/dashboard.js"></script>
 </body>
 

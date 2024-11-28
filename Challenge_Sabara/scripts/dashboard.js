@@ -1,154 +1,110 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const canvas = document.getElementById("chart");
-    const ctx = canvas.getContext("2d");
+    // **Indicadores**
+    const indicadoresData = {
+        pacientesHoje: 150,
+        consultasAgendadas: 300,
+        examesRealizados: 250,
+        medicosDisponiveis: 40,
+    };
 
-    // Configuração HiDPI/Retina
-    const scale = window.devicePixelRatio || 1;
-    canvas.width = 900 * scale;
-    canvas.height = 500 * scale;
-    canvas.style.width = "900px";
-    canvas.style.height = "500px";
-    ctx.scale(scale, scale);
+    const indicadores = {
+        pacientesHoje: document.getElementById("pacientes-hoje"),
+        consultasAgendadas: document.getElementById("consultas-agendadas"),
+        examesRealizados: document.getElementById("exames-realizados"),
+        medicosDisponiveis: document.getElementById("medicos-disponiveis"),
+    };
 
-    // Dados iniciais
-    let atual = [40, 60, 50, 80];
-    let proposto = [15, 20, 10, 30];
-    const labels = ["Check-in Digital", "Atualização de Status", "Integração de Dados", "Decisão Gerencial"];
+    const atualizarIndicadores = () => {
+        for (const key in indicadoresData) {
+            indicadores[key].textContent = indicadoresData[key];
+        }
+    };
 
-    const padding = 60; // Espaçamento ao redor
-    const barWidth = 40; // Largura das barras
-    const barSpacing = 100; // Espaçamento entre grupos de barras
-    let hoverIndex = null; // Índice da barra atualmente em hover
+    atualizarIndicadores();
 
-    // Função para renderizar o gráfico
-    function renderChart() {
-        const chartWidth = canvas.width / scale;
-        const chartHeight = canvas.height / scale;
-        const maxValue = Math.max(...atual, ...proposto);
-        const scaleFactor = (chartHeight - padding * 2) / maxValue;
+    // **Gráficos**
+    const drawLineChart = (canvas, labels, data, color) => {
+        const ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        ctx.clearRect(0, 0, chartWidth, chartHeight);
+        const maxData = Math.max(...data);
+        const scaleY = canvas.height / maxData;
+        const stepX = canvas.width / (labels.length - 1);
 
-        // Fundo
-        ctx.fillStyle = "rgba(234, 244, 255, 0.8)";
-        ctx.fillRect(padding, padding, chartWidth - padding * 2, chartHeight - padding * 2);
-
-        // Eixos
-        ctx.strokeStyle = "#000";
-        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.moveTo(padding, padding);
-        ctx.lineTo(padding, chartHeight - padding);
-        ctx.lineTo(chartWidth - padding, chartHeight - padding);
+
+        data.forEach((value, index) => {
+            const x = index * stepX;
+            const y = canvas.height - value * scaleY;
+            index === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        });
+
         ctx.stroke();
+    };
 
-        // Linhas horizontais e valores no eixo Y
-        ctx.strokeStyle = "#ddd";
-        ctx.fillStyle = "#333";
-        ctx.font = "14px Arial";
-        ctx.textAlign = "right";
-        for (let i = 0; i <= maxValue; i += 20) {
-            const y = chartHeight - padding - i * scaleFactor;
+    const drawBarChart = (canvas, labels, data, color) => {
+        const ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Linhas horizontais
-            ctx.beginPath();
-            ctx.moveTo(padding, y);
-            ctx.lineTo(chartWidth - padding, y);
-            ctx.stroke();
+        const barWidth = canvas.width / (labels.length * 2);
+        const maxData = Math.max(...data);
+        const scaleY = canvas.height / maxData;
 
-            // Valores no eixo Y
-            ctx.fillText(i, padding - 15, y + 5);
-        }
+        data.forEach((value, index) => {
+            const x = index * (barWidth * 2);
+            const y = canvas.height - value * scaleY;
+            ctx.fillStyle = color;
+            ctx.fillRect(x, y, barWidth, value * scaleY);
+        });
+    };
 
-        // Legenda do eixo Y
-        ctx.save();
-        ctx.translate(padding - 40, chartHeight / 2);
-        ctx.rotate(-Math.PI / 2);
-        ctx.textAlign = "center";
-        ctx.fillText("Tempo (em minutos)", 0, 0);
-        ctx.restore();
+    const dias = ["Seg", "Ter", "Qua", "Qui", "Sex"];
+    const consultas = [50, 75, 100, 200, 250];
+    const exames = [30, 60, 80, 150, 180];
 
-        // Desenhar barras
-        labels.forEach((label, index) => {
-            const x = padding + index * (barWidth * 2 + barSpacing);
+    drawLineChart(document.getElementById("grafico-consultas"), dias, consultas, "#004aad");
+    drawBarChart(document.getElementById("grafico-exames"), dias, exames, "#0065b3");
 
-            // Barras "Atual"
-            const atualHeight = atual[index] * scaleFactor;
-            ctx.fillStyle = hoverIndex === index ? "rgba(255, 99, 132, 1)" : "rgba(255, 99, 132, 0.8)";
-            ctx.fillRect(x, chartHeight - padding - atualHeight, barWidth, atualHeight);
+    // **Lista de Tarefas**
+    const tarefas = [
+        "Revisar estoque de medicamentos",
+        "Confirmar consultas de amanhã",
+        "Enviar resultados de exames",
+        "Planejar escalas médicas para o fim de semana",
+    ];
 
-            // Barras "Proposto"
-            const propostoHeight = proposto[index] * scaleFactor;
-            ctx.fillStyle = hoverIndex === index ? "rgba(54, 162, 235, 1)" : "rgba(54, 162, 235, 0.8)";
-            ctx.fillRect(x + barWidth + 10, chartHeight - padding - propostoHeight, barWidth, propostoHeight);
+    const tarefasContainer = document.querySelector(".tarefas ul");
+    tarefas.forEach((tarefa) => {
+        const li = document.createElement("li");
+        li.textContent = tarefa;
 
-            // Rótulos
-            ctx.fillStyle = "#000";
-            ctx.textAlign = "center";
-            ctx.font = "14px Arial";
-            ctx.fillText(label, x + barWidth / 2 + 10, chartHeight - padding + 25);
+        // Evento para riscar ou restaurar tarefa ao clicar
+        li.addEventListener("click", () => {
+            li.classList.toggle("completa");
         });
 
-        // Legenda
-        ctx.font = "14px Arial";
-        ctx.fillStyle = "rgba(255, 99, 132, 0.8)";
-        ctx.fillRect(chartWidth - padding - 200, padding - 10, 20, 20);
-        ctx.fillStyle = "#000";
-        ctx.fillText("Atual", chartWidth - padding - 170, padding + 5);
-
-        ctx.fillStyle = "rgba(54, 162, 235, 0.8)";
-        ctx.fillRect(chartWidth - padding - 100, padding - 10, 20, 20);
-        ctx.fillStyle = "#000";
-        ctx.fillText("Proposto", chartWidth - padding - 70, padding + 5);
-    }
-
-    // Função para detectar hover
-    canvas.addEventListener("mousemove", (event) => {
-        const rect = canvas.getBoundingClientRect();
-        const mouseX = (event.clientX - rect.left) * scale;
-        const barGroupWidth = barWidth * 2 + barSpacing;
-
-        hoverIndex = null; // Reset hoverIndex
-        labels.forEach((_, index) => {
-            const xGroup = padding + index * barGroupWidth;
-            if (mouseX >= xGroup && mouseX <= xGroup + barGroupWidth) {
-                hoverIndex = index; // Atualiza o índice do hover
-            }
-        });
-
-        renderChart();
+        tarefasContainer.appendChild(li);
     });
 
-    // Função para limpar o hover quando o mouse sai do canvas
-    canvas.addEventListener("mouseleave", () => {
-        hoverIndex = null;
-        renderChart();
-    });
+    // Adiciona funcionalidade para inserir novas tarefas (opcional)
+    const adicionarTarefa = (novaTarefa) => {
+        if (novaTarefa.trim()) {
+            const li = document.createElement("li");
+            li.textContent = novaTarefa;
 
-    // Função para atualizar dados do gráfico com base no período
-    function updateChart(period) {
-        if (period === "weekly") {
-            atual = [20, 30, 25, 40];
-            proposto = [10, 15, 10, 20];
-        } else if (period === "monthly") {
-            atual = [100, 150, 120, 200];
-            proposto = [50, 60, 40, 80];
-        } else if (period === "yearly") {
-            atual = [300, 500, 400, 600];
-            proposto = [150, 200, 120, 250];
+            li.addEventListener("click", () => {
+                li.classList.toggle("completa");
+            });
+
+            tarefasContainer.appendChild(li);
         }
+    };
 
-        document.querySelectorAll(".filter-button").forEach((button) => button.classList.remove("active"));
-        document.getElementById(period).classList.add("active");
-
-        renderChart();
-    }
-
-    // Listeners para botões de filtro
-    document.getElementById("weekly").addEventListener("click", () => updateChart("weekly"));
-    document.getElementById("monthly").addEventListener("click", () => updateChart("monthly"));
-    document.getElementById("yearly").addEventListener("click", () => updateChart("yearly"));
-
-    // Desenha o gráfico inicial
-    renderChart();
+    // Simulação de novas tarefas sendo adicionadas dinamicamente
+    setTimeout(() => {
+        adicionarTarefa("Realizar manutenção no sistema de TI");
+    }, 5000);
 });
+
