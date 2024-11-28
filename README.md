@@ -52,7 +52,7 @@ Challenge_Sabara/
 │   ├── doctor_icon.png
 │   ├── manager_icon.png
 
-
+```
 
 ## **3. Funcionalidades**
 
@@ -204,7 +204,7 @@ Este projeto foi desenvolvido por:
 
 - **Matheus Machado Caposse**
   - **RM: 560340**
-  
+
 ---
 
 ## **Referências de Design e Desenvolvimento**
