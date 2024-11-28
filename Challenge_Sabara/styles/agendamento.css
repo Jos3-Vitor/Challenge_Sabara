@@ -1,0 +1,220 @@
+/* Layout Principal */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 20px;
+}
+
+/* Seção de Agendamento */
+.agendamento-section {
+    max-width: 700px;
+    margin: 20px;
+    padding: 30px;
+    background: linear-gradient(to bottom, #ffffff, #f4f9ff);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.agendamento-section h2 {
+    font-size: 2.5rem;
+    color: #004aad;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.agendamento-section p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* Estilo dos Inputs e Selects */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 25px; /* Espaçamento entre os campos */
+    max-width: 500px;
+    margin: 0 auto; /* Centraliza o grupo */
+}
+
+.form-group label {
+    margin-bottom: 10px; /* Espaço entre o título e o input */
+    font-size: 1rem;
+    font-weight: bold;
+    color: #004aad;
+}
+
+form input,
+form select {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus,
+form select:focus {
+    border-color: #004aad;
+    box-shadow: 0 0 5px rgba(0, 74, 173, 0.5);
+    outline: none;
+}
+
+/* Input de Data */
+.input-longo {
+    width: calc(100% - 20px);
+    box-sizing: border-box;
+}
+
+/* Horários Disponíveis */
+.horarios-lista {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.horarios-lista div {
+    background: #eaf4ff;
+    border: 1px solid #004aad;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #004aad;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.horarios-lista div:hover {
+    background-color: #004aad;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Botão de Horário Selecionado */
+.horarios-lista div.active {
+    background-color: #004aad;
+    color: white;
+    font-weight: bold;
+    transform: scale(1.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Botão Confirmar */
+.btn-confirmar {
+    background: linear-gradient(to right, #004aad, #0065b3);
+    color: white;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 20px; /* Espaçamento entre os campos e o botão */
+    display: block; /* Garante que o botão ocupe toda a linha */
+    margin-left: auto;
+    margin-right: auto; /* Centraliza o botão */
+}
+
+.btn-confirmar:hover {
+    background: linear-gradient(to right, #003380, #005599);
+    transform: scale(1.05);
+}
+
+/* Resultado do Agendamento */
+.resultado-container {
+    display: none;
+    margin-top: 30px; /* Espaçamento maior do resultado */
+    padding: 20px;
+    border: 2px solid #004aad;
+    border-radius: 8px;
+    background-color: #eaf4ff;
+    width: 50%;
+    text-align: left;
+    font-size: 1.1rem;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+}
+
+.resultado-container strong {
+    display: block;
+    font-weight: bold;
+    color: #004aad;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.resultado-container p {
+    margin: 5px 0;
+}
+
+/* Valor em destaque */
+.resultado-container p strong {
+    color: #004aad;
+    font-size: 1.2rem;
+}
+
+/* Botão de Reset ou Voltar */
+#reset-button {
+    background: linear-gradient(to right, #004aad, #0065b3);
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto; /* Centraliza o botão */
+}
+
+#reset-button:hover {
+    background: linear-gradient(to right, #003380, #005599);
+    transform: scale(1.05);
+}
+
+/* Ajuste para mobile */
+@media (max-width: 768px) {
+    .agendamento-section {
+        padding: 20px;
+    }
+
+    .horarios-lista {
+        gap: 10px;
+    }
+
+    .horarios-lista div {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    form input,
+    form select {
+        font-size: 0.9rem;
+    }
+
+    .btn-confirmar {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+}

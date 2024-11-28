@@ -18,13 +18,13 @@
         </div>
         <nav>
             <ul>
-                <li><a href="/Challenge_Sabara/index.html">Home</a></li>
-                <li><a href="/Challenge_Sabara/pages/checkin.html">Check-in Digital</a></li>
-                <li><a href="/Challenge_Sabara/pages/status.html">Status do Paciente</a></li>
-                <li><a href="/Challenge_Sabara/pages/farmacia.html">Controle de Medicamentos</a></li>
-                <li><a href="../pages/agendamento.html" class="active">Agendamento de Consultas</a></li>
-                <li><a href="/Challenge_Sabara/pages/impactos.html">Impactos</a></li>
-                <li><a href="/Challenge_Sabara/pages/dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pages/checkin.html">Check-in Digital</a></li>
+                <li><a href="../pages/status.html">Status do Paciente</a></li>
+                <li><a href="../pages/farmacia.html">Controle de Medicamentos</a></li>
+                <li><a href="../pages/agendamento_consultas.html" class="active">Agendamento de Consultas</a></li>
+                <li><a href="../pages/impactos.html">Impactos</a></li>
+                <li><a href="../pages/dashboard.html">Dashboard</a></li>
             </ul>
         </nav>
     </header>
@@ -35,51 +35,80 @@
             <h2>Agendamento de Consultas</h2>
             <p>Selecione a especialidade, médico, data e horário para realizar o agendamento</p>
 
-            <!-- Seleção de Especialidade e Médico -->
-            <div class="form-group">
-                <label for="especialidade">Especialidade:</label>
-                <select id="especialidade" required>
-                    <option value="" disabled selected>Escolha a especialidade</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="medico">Médico:</label>
-                <select id="medico" required>
-                    <option value="" disabled selected>Escolha o médico</option>
-                </select>
-            </div>
-
-            <!-- Calendário -->
-            <div class="form-group">
-                <label for="data">Data:</label>
-                <input type="date" id="data" required>
-            </div>
-
-            <!-- Horários Disponíveis -->
-            <div class="form-group">
-                <label for="horario">Horário Disponível:</label>
-                <div id="horarios" class="horarios-lista">
-                    <!-- Botões de horários gerados dinamicamente -->
+            <form id="agendamento-form">
+                <!-- Especialidade -->
+                <div class="form-group">
+                    <label for="especialidade">Especialidade:</label>
+                    <select id="especialidade" required>
+                        <option value="" disabled selected>Escolha a especialidade</option>
+                    </select>
                 </div>
-            </div>
 
-            <!-- Formulário de Confirmação -->
-            <div class="form-group">
-                <label for="paciente-nome">Nome do Paciente:</label>
-                <input type="text" id="paciente-nome" placeholder="Digite o nome do paciente" required>
-            </div>
-            <div class="form-group">
-                <button id="confirmar" class="btn-confirmar">Confirmar Agendamento</button>
-            </div>
+                <!-- Médico -->
+                <div class="form-group">
+                    <label for="medico">Médico:</label>
+                    <select id="medico" required>
+                        <option value="" disabled selected>Escolha o médico</option>
+                    </select>
+                </div>
+
+                <!-- Data -->
+                <div class="form-group">
+                    <label for="data">Data:</label>
+                    <input type="date" id="data" class="input-longo" required>
+                </div>
+
+                <!-- Horário -->
+                <div class="form-group">
+                    <label for="horario">Horário Disponível:</label>
+                    <div id="horarios" class="horarios-lista">
+                        <!-- Horários gerados dinamicamente -->
+                    </div>
+                </div>
+
+                <!-- Nome do Paciente -->
+                <div class="form-group">
+                    <label for="paciente-nome">Nome do Paciente:</label>
+                    <input type="text" id="paciente-nome" placeholder="Digite o nome do paciente" required>
+                </div>
+
+                <!-- CPF -->
+                <div class="form-group">
+                    <label for="paciente-cpf">CPF do Paciente:</label>
+                    <input type="text" id="paciente-cpf" placeholder="Digite o CPF do paciente" required>
+                </div>
+
+                <!-- Responsável -->
+                <div class="form-group">
+                    <label for="responsavel-nome">Nome do Responsável (se necessário):</label>
+                    <input type="text" id="responsavel-nome" placeholder="Digite o nome do responsável">
+                </div>
+
+                <!-- Plano de Saúde -->
+                <div class="form-group">
+                    <label for="plano-saude">Plano de Saúde:</label>
+                    <select id="plano-saude" required>
+                        <option value="" disabled selected>Escolha uma opção</option>
+                        <option value="particular">Particular</option>
+                        <option value="plano-saude">Plano de Saúde</option>
+                    </select>
+                </div>
+
+                <!-- Botão de Confirmação -->
+                <div class="form-group">
+                    <button type="submit" id="confirmar" class="btn-confirmar">Confirmar Agendamento</button>
+                </div>
+            </form>
         </section>
+
+        <!-- Resultado do Agendamento -->
+        <div id="agendamento-result" class="resultado-container"></div>
     </main>
 
     <!-- Rodapé -->
     <footer>
         <p>&copy; 2024 Hospital Sabará. Todos os direitos reservados.</p>
-        <p>Contato: (11) 1234-5678 | <a href="mailto:contato@hospitalsabara.com.br">contato@hospitalsabara.com.br</a>
-        </p>
+        <p>Contato: (11) 1234-5678 | <a href="mailto:contato@hospitalsabara.com.br">contato@hospitalsabara.com.br</a></p>
     </footer>
 
     <!-- Script -->
