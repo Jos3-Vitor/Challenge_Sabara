@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById("impact-chart");
     const ctx = canvas.getContext("2d");
 
-    // Configuração HiDPI/Retina
     const scale = window.devicePixelRatio || 1;
     canvas.width = 900 * scale;
     canvas.height = 500 * scale;
@@ -10,126 +9,123 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.style.height = "500px";
     ctx.scale(scale, scale);
 
-    // Dados iniciais
     const dataBefore = [70, 80, 90];
     const dataAfter = [20, 30, 40];
     const labels = ["Pacientes", "Profissionais", "Gestores"];
+    const barWidth = 40;
+    const padding = 60;
+    let hoverIndex = null;
 
-    const padding = 60; // Espaçamento ao redor
-    const barWidth = 40; // Largura das barras
-    const barSpacing = 100; // Espaçamento entre grupos de barras
-    let hoverIndex = null; // Índice da barra atualmente em hover
-
-    // Função para renderizar o gráfico
     function renderChart() {
-        const chartWidth = canvas.width / scale;
-        const chartHeight = canvas.height / scale;
+        const chartHeight = canvas.height / scale - padding * 2;
         const maxValue = Math.max(...dataBefore, ...dataAfter);
-        const scaleFactor = (chartHeight - padding * 3) / maxValue;
+        const scaleFactor = chartHeight / maxValue;
 
-        ctx.clearRect(0, 0, chartWidth, chartHeight);
+        ctx.clearRect(0, 0, canvas.width / scale, canvas.height / scale);
 
         // Fundo
         ctx.fillStyle = "rgba(234, 244, 255, 0.8)";
-        ctx.fillRect(padding, padding, chartWidth - padding * 2, chartHeight - padding * 3);
+        ctx.fillRect(padding, padding, canvas.width / scale - padding * 2, chartHeight);
 
         // Eixos
-        ctx.strokeStyle = "#000";
-        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = "#333";
         ctx.beginPath();
-        ctx.moveTo(padding, padding);
-        ctx.lineTo(padding, chartHeight - padding * 2);
-        ctx.lineTo(chartWidth - padding, chartHeight - padding * 2);
+        ctx.moveTo(padding, chartHeight + padding);
+        ctx.lineTo(padding, padding);
+        ctx.lineTo(canvas.width / scale - padding, chartHeight + padding);
         ctx.stroke();
 
-        // Linhas horizontais e valores no eixo Y
-        ctx.strokeStyle = "#ddd";
-        ctx.fillStyle = "#333";
-        ctx.font = "14px Arial";
-        ctx.textAlign = "right";
+        // Linhas horizontais
         for (let i = 0; i <= maxValue; i += 10) {
-            const y = chartHeight - padding * 2 - i * scaleFactor;
-
-            // Linhas horizontais
+            const y = chartHeight + padding - i * scaleFactor;
+            ctx.strokeStyle = "#ddd";
             ctx.beginPath();
             ctx.moveTo(padding, y);
-            ctx.lineTo(chartWidth - padding, y);
+            ctx.lineTo(canvas.width / scale - padding, y);
             ctx.stroke();
 
-            // Valores no eixo Y
-            ctx.fillText(i, padding - 15, y + 5);
+            ctx.fillStyle = "#333";
+            ctx.font = "14px Arial";
+            ctx.fillText(i, padding - 10, y + 5);
         }
 
-        // Legenda para o eixo Y
-        ctx.save();
-        ctx.translate(20, chartHeight / 2); // Posiciona a legenda ao centro
-        ctx.rotate(-Math.PI / 2); // Rotaciona o texto para o eixo Y
-        ctx.textAlign = "center";
-        ctx.fillStyle = "#000";
-        ctx.font = "16px Arial";
-        ctx.fillText("Unidades de Tempo (Minutos)", 0, 0);
-        ctx.restore();
+        // Barras
+        labels.forEach((label, i) => {
+            const x = padding + i * 140;
+            const beforeHeight = dataBefore[i] * scaleFactor;
+            const afterHeight = dataAfter[i] * scaleFactor;
 
-        // Desenhar barras
-        labels.forEach((label, index) => {
-            const x = padding + index * (barWidth * 2 + barSpacing);
+            ctx.fillStyle = hoverIndex === i ? "rgba(255, 99, 132, 1)" : "rgba(255, 99, 132, 0.8)";
+            ctx.fillRect(x, chartHeight + padding - beforeHeight, barWidth, beforeHeight);
 
-            // Barras "Antes do Sistema"
-            const beforeHeight = dataBefore[index] * scaleFactor;
-            ctx.fillStyle = hoverIndex === index ? "rgba(255, 99, 132, 1)" : "rgba(255, 99, 132, 0.8)";
-            ctx.fillRect(x, chartHeight - padding * 2 - beforeHeight, barWidth, beforeHeight);
+            ctx.fillStyle = hoverIndex === i ? "rgba(54, 162, 235, 1)" : "rgba(54, 162, 235, 0.8)";
+            ctx.fillRect(x + barWidth + 10, chartHeight + padding - afterHeight, barWidth, afterHeight);
 
-            // Barras "Depois do Sistema"
-            const afterHeight = dataAfter[index] * scaleFactor;
-            ctx.fillStyle = hoverIndex === index ? "rgba(54, 162, 235, 1)" : "rgba(54, 162, 235, 0.8)";
-            ctx.fillRect(x + barWidth + 10, chartHeight - padding * 2 - afterHeight, barWidth, afterHeight);
-
-            // Rótulos
             ctx.fillStyle = "#000";
-            ctx.textAlign = "center";
-            ctx.font = "14px Arial";
-            ctx.fillText(label, x + barWidth / 2 + 10, chartHeight - padding * 2 + 25);
+            ctx.fillText(label, x + barWidth / 2 + 20, chartHeight + padding + 25);
+
+            if (hoverIndex === i) {
+                // Balão para "Antes do Sistema"
+                ctx.fillStyle = "#ff6384";
+                ctx.beginPath();
+                ctx.arc(x + barWidth / 2, chartHeight + padding - beforeHeight - 15, 15, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.fillStyle = "#fff";
+                ctx.font = "bold 12px Arial";
+                ctx.textAlign = "center";
+                ctx.fillText(dataBefore[i], x + barWidth / 2, chartHeight + padding - beforeHeight - 10);
+
+                // Balão para "Depois do Sistema"
+                ctx.fillStyle = "#36a2eb";
+                ctx.beginPath();
+                ctx.arc(x + barWidth * 1.5 + 10, chartHeight + padding - afterHeight - 15, 15, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.fillStyle = "#fff";
+                ctx.font = "bold 12px Arial";
+                ctx.fillText(dataAfter[i], x + barWidth * 1.5 + 10, chartHeight + padding - afterHeight - 10);
+            }
         });
 
-        // Legenda no canto superior direito
-        const legendX = chartWidth - padding - 200; // Posiciona no canto superior direito
-        const legendY = padding - 40;
-
+        // Legenda
+        ctx.fillStyle = "#000";
         ctx.font = "14px Arial";
-        ctx.fillStyle = "rgba(255, 99, 132, 0.8)";
-        ctx.fillRect(legendX, legendY, 20, 20);
-        ctx.fillStyle = "#000";
-        ctx.fillText("Antes do Sistema", legendX + 30, legendY + 15);
 
-        ctx.fillStyle = "rgba(54, 162, 235, 0.8)";
-        ctx.fillRect(legendX, legendY + 30, 20, 20);
+        // "Antes do Sistema"
+        ctx.fillStyle = "rgba(255, 99, 132, 0.8)";
+        ctx.fillRect(canvas.width / scale - 250, padding + 10, 20, 20);
         ctx.fillStyle = "#000";
-        ctx.fillText("Depois do Sistema", legendX + 30, legendY + 45);
+        ctx.fillText("Antes do Sistema", canvas.width / scale - 220, padding + 25);
+
+        // "Depois do Sistema"
+        ctx.fillStyle = "rgba(54, 162, 235, 0.8)";
+        ctx.fillRect(canvas.width / scale - 250, padding + 40, 20, 20);
+        ctx.fillStyle = "#000";
+        ctx.fillText("Depois do Sistema", canvas.width / scale - 220, padding + 55);
     }
 
     // Função para detectar hover
     canvas.addEventListener("mousemove", (event) => {
         const rect = canvas.getBoundingClientRect();
         const mouseX = (event.clientX - rect.left) * scale;
-        const barGroupWidth = barWidth * 2 + barSpacing;
+        const barGroupWidth = barWidth * 2 + 40;
 
-        hoverIndex = null; // Reset hoverIndex
-        labels.forEach((_, index) => {
-            const xGroup = padding + index * barGroupWidth;
+        hoverIndex = null;
+        labels.forEach((_, i) => {
+            const xGroup = padding + i * barGroupWidth;
             if (mouseX >= xGroup && mouseX <= xGroup + barGroupWidth) {
-                hoverIndex = index; // Atualiza o índice do hover
+                hoverIndex = i;
             }
         });
 
         renderChart();
     });
 
-    // Função para limpar o hover quando o mouse sai do canvas
+    // Remove hover quando o mouse sai do canvas
     canvas.addEventListener("mouseleave", () => {
         hoverIndex = null;
         renderChart();
     });
 
-    // Desenha o gráfico inicial
+    // Renderiza o gráfico pela primeira vez
     renderChart();
 });

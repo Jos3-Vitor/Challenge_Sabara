@@ -18,50 +18,53 @@
         </div>
         <nav>
             <ul>
-                <li><a href="/Challenge_Sabara/index.html">Home</a></li>
-                <li><a href="/Challenge_Sabara/pages/checkin.html">Check-in Digital</a></li>
-                <li><a href="/Challenge_Sabara/pages/status.html">Status do Paciente</a></li>
-                <li><a href="/Challenge_Sabara/pages/farmacia.html">Controle de Medicamentos</a></li>
-                <li><a href="/Challenge_Sabara/pages/agendamento_consultas.html">Agendamento de Consultas</a></li>
-                <li><a href="/Challenge_Sabara/pages/impactos.html" class="active">Impactos</a></li>
-                <li><a href="/Challenge_Sabara/pages/dashboard.html" >Dashboard</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pages/checkin.html">Check-in Digital</a></li>
+                <li><a href="../pages/status.html">Status do Paciente</a></li>
+                <li><a href="../pages/farmacia.html">Controle de Medicamentos</a></li>
+                <li><a href="../pages/agendamento_consultas.html">Agendamento de Consultas</a></li>
+                <li><a href="../pages/impactos.html" class="active">Impactos</a></li>
+                <li><a href="../pages/dashboard.html">Dashboard</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Seção Principal -->
     <main>
-        <!-- Seção de Impactos -->
         <section class="impactos-section">
             <h1>Impacto em Números</h1>
             <p>Uma comparação entre os processos antes e depois da implementação do sistema.</p>
             <canvas id="impact-chart"></canvas>
+            <div class="chart-description">
+                <p>
+                    Este gráfico mostra os tempos médios antes e depois da implementação do sistema integrado, 
+                    destacando a melhoria na eficiência para pacientes, profissionais e gestores.
+                </p>
+            </div>
         </section>
 
-        <!-- Nova Seção de Textos -->
         <section class="impact-text-section">
             <h2>Análise dos Impactos</h2>
             <div class="impact-text-container">
                 <div class="impact-text-card">
+                    <img src="../assets/pacientes_icon.png" alt="Pacientes" class="icon">
                     <h3>Pacientes</h3>
                     <p>
-                        Antes do sistema integrado, os pacientes enfrentavam longas filas e atrasos no atendimento.
-                        Após a implementação, os tempos de espera foram significativamente reduzidos, melhorando
-                        a experiência geral do paciente.
+                        Redução significativa no tempo de espera, melhorando a experiência do atendimento.
                     </p>
                 </div>
                 <div class="impact-text-card">
+                    <img src="../assets/doctor_icon.png" alt="Profissionais" class="icon">
                     <h3>Profissionais</h3>
                     <p>
-                        Os profissionais ganharam ferramentas para otimizar suas tarefas diárias, reduzindo a carga
-                        administrativa e permitindo mais foco na atenção aos pacientes.
+                        Processos otimizados permitem mais tempo dedicado ao atendimento aos pacientes.
                     </p>
                 </div>
                 <div class="impact-text-card">
+                    <img src="../assets/manager_icon.png" alt="Gestores" class="icon">
                     <h3>Gestores</h3>
                     <p>
-                        Com relatórios detalhados e dados em tempo real, os gestores agora têm uma visão clara
-                        dos processos internos, facilitando a tomada de decisões estratégicas.
+                        Dados em tempo real auxiliam na tomada de decisões mais estratégicas.
                     </p>
                 </div>
             </div>
@@ -74,7 +77,6 @@
         <p>Contato: (11) 1234-5678 | <a href="mailto:contato@hospitalsabara.com.br">contato@hospitalsabara.com.br</a></p>
     </footer>
 
-    <!-- Script -->
     <script src="../scripts/impactos.js"></script>
 </body>
 

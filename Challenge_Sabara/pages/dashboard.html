@@ -24,7 +24,7 @@
                 <li><a href="/Challenge_Sabara/pages/farmacia.html">Controle de Medicamentos</a></li>
                 <li><a href="/Challenge_Sabara/pages/agendamento_consultas.html">Agendamento de Consultas</a></li>
                 <li><a href="/Challenge_Sabara/pages/impactos.html">Impactos</a></li>
-                <li><a href="/Challenge_Sabara/pages/dashboard.html"  class="active">Dashboard</a></li>
+                <li><a href="/Challenge_Sabara/pages/dashboard.html" class="active">Dashboard</a></li>
             </ul>
         </nav>
     </header>
@@ -54,26 +54,33 @@
         <!-- Gráficos -->
         <section class="graficos">
             <div class="grafico">
-                <h3>Consultas por Dia</h3>
-                <canvas id="grafico-consultas" width="400" height="200"></canvas>
+                <canvas id="consultas-chart" width="500" height="200"></canvas>
             </div>
             <div class="grafico">
-                <h3>Exames por Dia</h3>
-                <canvas id="grafico-exames" width="400" height="200"></canvas>
+                <canvas id="exames-chart" width="500" height="200"></canvas>
             </div>
         </section>
 
+
         <!-- Lista de Tarefas -->
-        <section class="tarefas">
+        <div class="tarefas">
             <h3>Lista de Tarefas</h3>
             <ul></ul>
-        </section>
+            <div class="adicionar-tarefa">
+                <input type="text" id="nova-tarefa" placeholder="Digite uma nova tarefa" />
+                <button id="adicionar-tarefa-btn" class="btn-adicionar">Adicionar</button>
+            </div>
+        </div>
+        
+        
+
     </main>
 
     <!-- Rodapé -->
     <footer>
         <p>&copy; 2024 Hospital Sabará. Todos os direitos reservados.</p>
-        <p>Contato: (11) 1234-5678 | <a href="mailto:contato@hospitalsabara.com.br">contato@hospitalsabara.com.br</a></p>
+        <p>Contato: (11) 1234-5678 | <a href="mailto:contato@hospitalsabara.com.br">contato@hospitalsabara.com.br</a>
+        </p>
     </footer>
 
     <script src="../scripts/dashboard.js"></script>
