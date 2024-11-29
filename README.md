@@ -56,17 +56,61 @@ Challenge_Sabara/
 
 ## **3. Funcionalidades**
 
-### **3.1 Página Inicial (`index.html`)**
+# Página Inicial (`index.html`)
 
-- **Descrição**: Fornece uma visão geral do sistema com links para as funcionalidades principais.
-- **Componentes**:
-  - Notificações dinâmicas.
-  - Hero section com call-to-action para Check-in Digital.
-  - Seção de notícias.
-- **Estilos e scripts**: `styles.css`, `notification.js`, `news.js`.
-- **Referências**:
-  - Nielsen Norman Group. ["Design de progressão de conteúdo"](https://www.nngroup.com/).
-  - MDN Web Docs. ["Boas práticas para animações"](https://developer.mozilla.org/).
+## Descrição
+A página inicial do sistema integrado do Hospital Sabará apresenta uma visão geral das principais funcionalidades, oferecendo navegação intuitiva e acesso rápido às ferramentas disponíveis. É a porta de entrada para pacientes, profissionais e gestores explorarem os recursos do sistema.
+
+## Componentes Principais
+- **Notificações Dinâmicas**: Um banner interativo que exibe mensagens importantes ou novidades diretamente na página inicial.
+- **Hero Section**: Área destacada com um call-to-action direcionado para o Check-in Digital, facilitando o acesso a essa funcionalidade essencial.
+- **Seção de Serviços**: Cards interativos apresentando os serviços principais, como Check-in Digital, Controle de Medicamentos e Status do Paciente.
+- **Seção de Notícias**: Lista atualizada com as últimas novidades e comunicados do hospital.
+
+## Estilos e Scripts
+- **Estilos**: `styles.css`
+  - Layout responsivo e moderno.
+  - Uso de gradientes suaves e animações para melhorar a experiência do usuário.
+- **Scripts**:
+  - `notification.js`: Gerencia o comportamento das notificações dinâmicas.
+  - `news.js`: Responsável por carregar e exibir notícias dinamicamente.
+  - `impactos.js`:
+    - Exibição de comparações entre os processos antes e depois do sistema.
+    - Função de hover para destacar valores específicos no gráfico.
+
+## Referências Técnicas
+- Nielsen Norman Group. ["Design de progressão de conteúdo"](https://www.nngroup.com/).
+- MDN Web Docs. ["Responsividade em CSS"](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design).
+- Smashing Magazine. ["Design eficiente para homepages"](https://www.smashingmagazine.com/).
+- David Flanagan. ["JavaScript: The Definitive Guide"](https://www.oreilly.com/library/view/javascript-the-definitive/9781491952023/).
+
+## Funcionalidades Destacadas
+1. **Notificações Dinâmicas**:
+   - Exibe avisos importantes.
+   - Possui animação de fade-in para destacar a mensagem.
+2. **Hero Section**:
+   - Botão CTA (Call-to-Action) para direcionar usuários ao Check-in Digital.
+   - Design responsivo e visualmente atraente.
+3. **Seção de Serviços**:
+   - Apresentação interativa dos principais recursos do sistema.
+   - Alinhamento horizontal com animações de hover.
+4. **Seção de Notícias**:
+   - Atualização dinâmica das últimas informações hospitalares.
+   - Botões para carregar mais notícias ou fechar a seção.
+
+4.  **Menu Expansivo**:
+    - Inclusão de menu expansivo interativo para navegação nas seções da página.
+    - Alinhamento visual aprimorado para uma experiência mais fluida.
+    - Adição de animações sutis para maior engajamento do usuário.
+    
+5. **Seção de Impactos**:
+    - Comparação visual dos resultados antes e depois da implementação do sistema.
+    - Uso de gráficos com balões informativos em hover para maior detalhamento.
+    - Destaques nos impactos positivos para pacientes, profissionais e gestores.
+
+---
+
+© 2024 Hospital Sabará. Todos os direitos reservados.
 
 ---
 
@@ -121,22 +165,10 @@ Challenge_Sabara/
   - UX Design Institute. ["Design eficiente de formulários"](https://uxdesigninstitute.com/).
   - MDN Web Docs. ["Manipulação de dados no JavaScript"](https://developer.mozilla.org/).
 
----
-
-### **3.6 Impactos em Números (`pages/impactos.html`)**
-
-- **Descrição**: Exibe relatórios sobre melhorias de eficiência antes e depois da implementação do sistema.
-- **Componentes**:
-  - Gráfico comparativo interativo.
-  - Seções detalhando os impactos em pacientes, profissionais e gestores.
-- **Estilos e scripts**: `impactos.css`, `impactos.js`.
-- **Referências**:
-  - Smashing Magazine. ["Uso de gráficos para contar histórias"](https://smashingmagazine.com/).
-  - MDN Web Docs. ["Canvas API"](https://developer.mozilla.org/).
 
 ---
 
-### **3.7 Dashboard Administrativo (`pages/dashboard.html`)**
+### **3.6 Dashboard Administrativo (`pages/dashboard.html`)**
 
 - **Descrição**: Fornece dados analíticos em tempo real para gestores.
 - **Componentes**:
