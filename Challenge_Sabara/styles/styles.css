@@ -14,49 +14,123 @@ body {
 
 /* Cabeçalho (Header) */
 header {
-    background-color: #0065B3; /* Azul do logotipo do hospital */
-    color: white; /* Texto branco para contraste */
+    background-color: #0065B3;
+    /* Azul do logotipo do hospital */
+    color: white;
+    /* Texto branco para contraste */
     padding: 15px;
-    display: flex; /* Flexbox para alinhar logo e menu */
-    justify-content: space-between; /* Mantém a logo e os links separados */
+    display: flex;
+    /* Flexbox para alinhar logo e menu */
+    justify-content: space-between;
+    /* Mantém a logo e os links separados */
     align-items: center;
-    box-shadow: 0px 2px 5px rgba(117, 113, 113, 0.1); /* Sombra sutil para destaque */
-    transition: box-shadow 0.3s ease; /* Suave ao interagir */
+    box-shadow: 0px 2px 5px rgba(117, 113, 113, 0.1);
+    /* Sombra sutil para destaque */
+    transition: box-shadow 0.3s ease;
+    /* Suave ao interagir */
+}
+/* Menu Expansivo */
+nav ul li .dropdown-arrow {
+    cursor: pointer;
+    color: white;
+    font-size: 0.8rem;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+nav ul li .dropdown-arrow:hover {
+    color: #ffcc00;
+}
+
+#sections-toggle:checked + .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+#menu-sections {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    background: #eaf4ff;
+    display: none;
+    position: absolute;
+    left: 250px;
+    top: 100px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 200px;
+    z-index: 1000;
+}
+
+#sections-toggle:checked ~ #menu-sections {
+    display: block;
+
+}
+
+#menu-sections li {
+    margin: 5px 0;
+    text-align: left;
+}
+
+#menu-sections li a {
+    color: #004aad;
+    padding: 5px 10px;
+    text-decoration: none;
+    display: block;
+}
+
+#menu-sections li a:hover {
+    background-color: #ddd;
+    color: #003380;
 }
 
 /* Logo */
 header .logo {
-    flex: 0 0 auto; /* Garante que a logo não se expanda */
+    flex: 0 0 auto;
+    /* Garante que a logo não se expanda */
 }
 
 header .logo img {
-    height: 100px; /* Altura fixa do logotipo */
-    width: 100px; /* Largura fixa do logotipo */
+    height: 100px;
+    /* Altura fixa do logotipo */
+    width: 100px;
+    /* Largura fixa do logotipo */
 }
 
 /* Menu de Navegação */
 nav {
-    flex: 1; /* Faz o menu ocupar o espaço restante */
-    text-align: center; /* Centraliza os links no espaço do menu */
+    flex: 1;
+    /* Faz o menu ocupar o espaço restante */
+    text-align: center;
+    /* Centraliza os links no espaço do menu */
 }
 
 nav ul {
-    list-style: none; /* Remove marcadores de lista */
-    display: inline-flex; /* Exibe os itens em linha */
-    gap: 20px; /* Espaçamento uniforme entre os links */
-    padding: 0; /* Remove o espaçamento padrão */
-    margin: 0; /* Remove o espaçamento padrão */
+    list-style: none;
+    /* Remove marcadores de lista */
+    display: inline-flex;
+    /* Exibe os itens em linha */
+    gap: 20px;
+    /* Espaçamento uniforme entre os links */
+    padding: 0;
+    /* Remove o espaçamento padrão */
+    margin: 0;
+    /* Remove o espaçamento padrão */
 }
 
 nav ul li a {
-    color: white; /* Links brancos */
-    text-decoration: none; /* Remove o sublinhado dos links */
-    font-weight: bold; /* Destaque para os links */
-    transition: color 0.3s ease; /* Transição suave no hover */
+    color: white;
+    /* Links brancos */
+    text-decoration: none;
+    /* Remove o sublinhado dos links */
+    font-weight: bold;
+    /* Destaque para os links */
+    transition: color 0.3s ease;
+    /* Transição suave no hover */
 }
 
 nav ul li a:hover {
-    color: #ffcc00; /* Muda para amarelo ao passar o mouse */
+    color: #ffcc00;
+    /* Muda para amarelo ao passar o mouse */
 }
 
 
@@ -380,8 +454,58 @@ footer {
 
 
 
-/* Comentário geral:
-   Este CSS inclui animações suaves para botões, imagens e elementos interativos.
-   O uso de flexbox e transições garante boa responsividade e experiência do usuário.
-   As animações de hover e keyframes criam um site visualmente dinâmico e moderno.
-*/
+/* Estilo Geral para as Novas Seções */
+.content-section {
+    background-color: #f9f9f9;
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.content-section h2 {
+    font-size: 2rem;
+    color: #004aad; /* Azul principal para títulos */
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.content-section p {
+    font-size: 1.1rem;
+    color: #555; /* Cinza suave para texto */
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+/* Responsividade para Seções */
+@media screen and (max-width: 768px) {
+    .content-section {
+        padding: 20px;
+    }
+
+    .content-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .content-section p {
+        font-size: 1rem;
+    }
+}
+/* Imagens nas Seções */
+.section-image {
+    display: block;
+    margin: 20px auto;
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}

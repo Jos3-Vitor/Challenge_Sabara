@@ -9,6 +9,7 @@
     <title>Hospital Sabará - Sistema Integrado</title>
     <link rel="stylesheet" href="/Challenge_Sabara/styles/normalize.css">
     <link rel="stylesheet" href="/Challenge_Sabara/styles/styles.css">
+    <link rel="stylesheet" href="/Challenge_Sabara/styles/impactos.css">
 </head>
 
 <body>
@@ -25,13 +26,27 @@
         </div>
         <nav>
             <ul>
-                <li><a href="/Challenge_Sabara/index.html" class="active">Home</a></li>
+                <li> <a href="/Challenge_Sabara/index.html" class="active">Home</a>
+                    <input type="checkbox" id="sections-toggle" hidden>
+                    <label for="sections-toggle" class="dropdown-arrow">▼</label>
+                    <ul id="menu-sections" class="hidden">
+                        <li><a href="#impactos">Impactos</a></li>
+                        <li><a href="#seguranca-dados">Segurança de Dados</a></li>
+                        <li><a href="#fluxo-atendimento">Fluxo de Atendimento</a></li>
+                        <li><a href="#treinamento">Treinamento e Adaptação</a></li>
+                        <li><a href="#transformacao-digital">Transformação Digital</a></li>
+                        <li><a href="#melhorias-futuras">Melhorias Futuras</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul>
+                </li>
                 <li><a href="/Challenge_Sabara/pages/checkin.html">Check-in Digital</a></li>
                 <li><a href="/Challenge_Sabara/pages/status.html">Status do Paciente</a></li>
                 <li><a href="/Challenge_Sabara/pages/farmacia.html">Controle de Medicamentos</a></li>
                 <li><a href="/Challenge_Sabara/pages/agendamento_consultas.html">Agendamento de Consultas</a></li>
-                <li><a href="/Challenge_Sabara/pages/impactos.html">Impactos</a></li>
                 <li><a href="/Challenge_Sabara/pages/dashboard.html">Dashboard</a></li>
+            </ul>
             </ul>
         </nav>
     </header>
@@ -50,22 +65,138 @@
             <h3>Nossas Funcionalidades</h3>
             <div class="feature-container">
                 <div class="feature-item">
-                    <img src="/Challenge_Sabara/assets/check-in_icon.png" alt="Check-in Digital" width="100" height="100">
+                    <img src="/Challenge_Sabara/assets/check-in_icon.png" alt="Check-in Digital" width="100"
+                        height="100">
                     <h4>Check-in Digital</h4>
                     <p>Agilize sua entrada no hospital com nosso sistema de check-in.</p>
                 </div>
                 <div class="feature-item">
-                    <img src="/Challenge_Sabara/assets/status_icon.png" alt="Status do Paciente" width="100" height="100">
+                    <img src="/Challenge_Sabara/assets/status_icon.png" alt="Status do Paciente" width="100"
+                        height="100">
                     <h4>Status do Paciente</h4>
                     <p>Acompanhe o andamento dos atendimentos em tempo real.</p>
                 </div>
                 <div class="feature-item">
-                    <img src="/Challenge_Sabara/assets/meds_icon.png" alt="Controle de Medicamentos" width="100" height="100">
+                    <img src="/Challenge_Sabara/assets/meds_icon.png" alt="Controle de Medicamentos" width="100"
+                        height="100">
                     <h4>Controle de Medicamentos</h4>
                     <p>Gerencie o estoque hospitalar de forma eficiente.</p>
                 </div>
             </div>
         </section>
+        <!-- Impactos -->
+        <section id="impactos" class="impactos-section">
+            <h1>Impacto em Números</h1>
+            <p>Uma comparação entre os processos antes e depois da implementação do sistema.</p>
+            <canvas id="impact-chart"></canvas>
+            <div class="chart-description">
+                <p>
+                    Este gráfico destaca os tempos médios antes e depois da implementação do sistema integrado,
+                    evidenciando a melhoria para pacientes, profissionais e gestores.
+                </p>
+            </div>
+        </section>
+
+        <section class="impact-text-section">
+            <h2>Análise dos Impactos</h2>
+            <div class="impact-text-container">
+                <div class="impact-text-card">
+                    <img src="/Challenge_Sabara/assets/pacientes_icon.png" alt="Pacientes" class="icon">
+                    <h3>Pacientes</h3>
+                    <ul>
+                        <li><strong>Antes:</strong> Longas filas e falta de informações claras. </li>
+                        <li><strong>Depois:</strong> Redução significativa no tempo de espera e maior transparência.
+                        </li>
+                    </ul>
+                </div>
+                <div class="impact-text-card">
+                    <img src="/Challenge_Sabara/assets/doctor_icon.png" alt="Profissionais" class="icon">
+                    <h3>Profissionais</h3>
+                    <ul>
+                        <li><strong>Antes:</strong> Sobrecarga de tarefas administrativas.</li>
+                        <li><strong>Depois:</strong> Processos otimizados para mais tempo com pacientes.</li>
+                    </ul>
+                </div>
+                <div class="impact-text-card">
+                    <img src="/Challenge_Sabara/assets/manager_icon.png" alt="Gestores" class="icon">
+                    <h3>Gestores</h3>
+                    <ul>
+                        <li><strong>Antes:</strong> Falta de dados para decisões estratégicas.</li>
+                        <li><strong>Depois:</strong> Relatórios em tempo real para decisões assertivas.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="seguranca-dados" class="content-section">
+            <h2>Segurança de Dados</h2>
+            <img src="/Challenge_Sabara/assets/seguranca-dados.png" alt="Ícone de Segurança de Dados"
+                class="section-image">
+            <p>No ambiente hospitalar, a segurança de dados é um dos pilares fundamentais para garantir a
+                confidencialidade e a integridade das informações de pacientes e profissionais. Nosso sistema utiliza as
+                mais modernas tecnologias de encriptação e controles de acesso, assegurando que apenas pessoas
+                autorizadas possam acessar dados sensíveis. Essa proteção robusta é essencial para prevenir vazamentos
+                de informações e manter a conformidade com regulamentações de privacidade, como a LGPD. Além disso,
+                nossa solução conta com monitoramento constante e auditorias regulares para identificar e mitigar
+                possíveis ameaças cibernéticas. Dessa forma, garantimos não apenas a segurança, mas também a confiança
+                de todos os envolvidos no processo hospitalar, promovendo um ambiente digital seguro e eficiente.</p>
+        </section>
+
+        <section id="fluxo-atendimento" class="content-section">
+            <h2>Fluxo de Atendimento</h2>
+            <img src="/Challenge_Sabara/assets/fluxo-atendimento.png" alt="Gráfico de Fluxo Hospitalar"
+                class="section-image">
+            <p>Um dos grandes desafios enfrentados por hospitais é a gestão eficiente do fluxo de atendimento. Nosso
+                sistema foi concebido para otimizar cada etapa desse processo, desde o check-in até a alta dos
+                pacientes. Através de funcionalidades como priorização automática de atendimentos e monitoramento em
+                tempo real, reduzimos gargalos e agilizamos o deslocamento dos pacientes entre setores. Essa organização
+                impacta diretamente na experiência dos usuários, diminuindo o tempo de espera e aumentando a satisfação.
+                Além disso, os profissionais de saúde ganham ferramentas que permitem uma visão clara e centralizada das
+                demandas, o que facilita a tomada de decisões rápidas e assertivas. Nosso objetivo é transformar o fluxo
+                hospitalar em uma operação integrada e eficiente.
+            </p>
+        </section>
+
+        <section id="treinamento" class="content-section">
+            <h2>Treinamento e Adaptação</h2>
+            <img src="/Challenge_Sabara/assets/treino-adapt.png" alt="Sessão de Treinamento para Equipes"
+                class="section-image">
+            <p>A implementação de novas tecnologias em ambientes hospitalares pode parecer desafiadora, mas nosso
+                sistema foi projetado para garantir uma adaptação simples e natural. Com uma interface intuitiva e
+                ferramentas práticas, as equipes rapidamente se familiarizam com os processos, mesmo sem a necessidade
+                de longos treinamentos. Nosso objetivo é tornar o aprendizado uma experiência fluida, integrando o uso
+                da solução ao dia a dia de forma orgânica. Assim, com o passar do tempo, profissionais e gestores
+                estarão completamente adaptados, beneficiando-se das vantagens do sistema enquanto continuam a focar no
+                atendimento de qualidade aos pacientes.
+            </p>
+        </section>
+
+        <section id="transformacao-digital" class="content-section">
+            <h2>Transformação Digital no Ambiente Hospitalar</h2>
+            <img src="/Challenge_Sabara/assets/digital.png" alt="Interface Digital Hospitalar" class="section-image">
+            <p>A implementação de tecnologias digitais é uma peça-chave para a modernização do ambiente hospitalar.
+                Nosso sistema integrado foi projetado para revolucionar os processos diários, oferecendo ferramentas que
+                conectam pacientes, profissionais e gestores em uma única plataforma. Essa transformação digital
+                possibilita o acesso instantâneo a informações essenciais, reduz a burocracia e promove uma comunicação
+                eficiente entre as equipes. Além disso, a automatização dos fluxos de trabalho permite que os
+                profissionais de saúde foquem em tarefas críticas, melhorando a qualidade do atendimento. Com uma
+                interface intuitiva e funcional, nosso sistema é uma solução prática que alia simplicidade e eficiência,
+                preparando o hospital para os desafios de um setor de saúde em constante evolução.</p>
+        </section>
+
+        <section id="melhorias-futuras" class="content-section">
+            <h2>Melhorias Futuras</h2>
+            <img src="/Challenge_Sabara/assets/upgrade.png" alt="Ilustração de Melhorias Futuras" class="section-image">
+            <p>O futuro do setor hospitalar está cada vez mais conectado à inovação e à tecnologia, e nossa solução está
+                alinhada com essa evolução. Nosso roadmap de melhorias inclui a integração de inteligência artificial
+                para prever demandas, otimizar recursos e oferecer insights avançados para gestores. Além disso,
+                planejamos expandir as funcionalidades do sistema com ferramentas de análise preditiva, que permitirão
+                antecipar tendências e ajustar processos com maior precisão. Outro aspecto central é o uso de
+                tecnologias móveis, que facilitarão o acesso ao sistema em qualquer lugar, ampliando sua flexibilidade e
+                utilidade. Com essas melhorias, buscamos não apenas atender às necessidades atuais, mas também preparar
+                o hospital para os desafios de amanhã.</p>
+        </section>
+
 
         <!-- Seção de Notícias -->
         <section class="news">
@@ -93,6 +224,7 @@
     <!-- Scripts -->
     <script src="/Challenge_Sabara/scripts/notification.js"></script>
     <script src="/Challenge_Sabara/scripts/news.js"></script>
+    <script src="/Challenge_Sabara/scripts/impactos.js"></script>
 </body>
 
 </html>

@@ -55,9 +55,8 @@ canvas {
 
 .impact-text-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    gap: 50px;
+    justify-content: space-between;
 }
 
 .impact-text-card {
@@ -66,9 +65,9 @@ canvas {
     border-radius: 10px;
     padding: 20px;
     width: 300px;
-    text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 
 .icon {
     width: 50px;
